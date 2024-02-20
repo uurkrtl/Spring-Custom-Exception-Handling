@@ -30,22 +30,22 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ErrorMessage> handleCarBrandNotPorscheException (CarBrandNotPorscheException ex, WebRequest webRequest){
         ErrorMessage errorMessage = new ErrorMessage(
                 webRequest.getDescription(false),
-                HttpStatus.NOT_FOUND,
+                HttpStatus.BAD_REQUEST,
                 ex.getMessage(),
                 LocalDateTime.now()
         );
-        return new ResponseEntity<>(errorMessage, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(AnimalSpeciesNotDogException.class)
     public ResponseEntity<ErrorMessage> handleAnimalSpeciesNotDogException (AnimalSpeciesNotDogException ex, WebRequest webRequest){
         ErrorMessage errorMessage = new ErrorMessage(
                 webRequest.getDescription(false),
-                HttpStatus.NOT_FOUND,
+                HttpStatus.BAD_REQUEST,
                 ex.getMessage(),
                 LocalDateTime.now()
         );
-        return new ResponseEntity<>(errorMessage, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(RuntimeException.class)
